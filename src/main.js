@@ -1,0 +1,5 @@
+var React = require('react')
+var ReactDOM = require('react-dom')
+var jQuery = window.$ = require('jQuery')
+var bootstrap = require('bootstrap-sass')
+var Router = require('react-router')
