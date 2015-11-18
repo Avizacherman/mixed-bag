@@ -1,12 +1,14 @@
 var React = require('react')
-var Link = require('react-router').Link
 
 
 var App = React.createClass({
   render: function(){
     return(
     <div>
-      SUP
+      //Topbar (different for Mobile vs. Non Mobile)
+      //Sidebar (only present on non-mobile)
+      //Bottom copyright thing/contact
+
 
       {this.props.children || ""}
     </div>
