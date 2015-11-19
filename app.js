@@ -9,8 +9,8 @@ var sassMiddleware = require('node-sass-middleware')
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
-var newOrder = require('./routes/newOrder')
-var joinOrder = require('./routes/joinOrder')
+var order = require('./routes/order')
+var appRoute = require('./routes/appRoute')
 
 var app = express();
 
@@ -39,8 +39,8 @@ app.use(sassMiddleware({
 
 app.use('/', routes);
 app.use('/users', users);
-app.use('/order/new', newOrder)
-app.use('/order/join', joinOrder)
+app.use('/order', order)
+app.use('/app', appRoute)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

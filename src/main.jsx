@@ -14,23 +14,17 @@ var User = require('./components/user')
 var Order = require('./components/order')
 var NewOrder = require('./components/newOrder')
 var JoinOrder = require('./components/joinOrder')
-var Index = require('./components/index')
-var Spash = require('./components/splash')
 var Base = require('./components/base')
 
 ReactDOM.render((
   <Router>
-    <Route path ="/" component={Index}>
-    <IndexRoute component={Splash}/>
-      <Route path="app" component={App}>
-      <IndexRoute component={Base}
-        <Route path="user/:id" component={User}/>
-        <Route path="order" component={Order}>
-          <Route path="new" component={NewOrder}/>
-          <Route path="join/:uniqueID" component={JoinOrder}/>
-        </Route>
+    <Route path ="/" component={App}>
+    <IndexRoute component={Base}/>
+      <Route path="user/:id" component={User}/>
+      <Route path="order" component={Order}>
+        <Route path="new" component={NewOrder}/>
+        <Route path="join/:uniqueID" component={JoinOrder}/>
       </Route>
     </Route>
-
   </Router>
 ), document.getElementById('content'))
