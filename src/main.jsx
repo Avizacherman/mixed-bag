@@ -1,4 +1,5 @@
 window.jQuery = window.$ = require('jquery')
+
 var React = require('react')
 var ReactDOM = require('react-dom')
 var bootstrap = require('bootstrap-sass')
