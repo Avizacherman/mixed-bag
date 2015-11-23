@@ -39170,12 +39170,12 @@ module.exports = warning;
 var React = require('react');
 var RaisedButton = require('../../node_modules/material-ui/lib/raised-button');
 var Link = require('react-router').Link;
-
-console.log(RaisedButton);
+var History = require('react-router').History;
 
 var App = React.createClass({ displayName: "App",
+  mixins: [History],
   render: function () {
-    return React.createElement("div", null, React.createElement("div", null, "//Topbar (different for Mobile vs. Non Mobile)" + ' ' + "//Sidebar (only present on non-mobile)" + ' ' + "//Bottom copyright thing/contact"), React.createElement(RaisedButton, null, React.createElement(Link, { to: "/order/join/blah_blah_123" }, "Join")), React.createElement(RaisedButton, null, React.createElement(Link, { to: "order/new" }, "New")), this.props.children);
+    return React.createElement("div", null, React.createElement("div", null, "//Topbar (different for Mobile vs. Non Mobile)" + ' ' + "//Sidebar (only present on non-mobile)" + ' ' + "//Bottom copyright thing/contact"), React.createElement(RaisedButton, { onClick: () => this.history.pushState(null, "/order/join/blah_blah_123") }, "Join"), React.createElement(RaisedButton, { onClick: () => this.history.pushState(null, "order/new") }, "New"), this.props.children);
   }
 });
 
