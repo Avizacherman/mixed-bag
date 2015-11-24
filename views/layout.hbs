@@ -2,7 +2,11 @@
 <html>
   <head>
     <title>{{title}}</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    {{#if splash}}
+      <link rel='stylesheet' href='/stylesheets/splash.css' />
+    {{else}}
+      <link rel='stylesheet' href='/stylesheets/style.css' />
+    {{/if}}
   </head>
   <body>
     {{{body}}}

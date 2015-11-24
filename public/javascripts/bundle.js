@@ -39167,15 +39167,16 @@ module.exports = warning;
 
 }).call(this,require('_process'))
 },{"_process":263}],256:[function(require,module,exports){
-var React = require('react');
-var RaisedButton = require('../../node_modules/material-ui/lib/raised-button');
-var Link = require('react-router').Link;
-var History = require('react-router').History;
+"use strict";
 
-var App = React.createClass({ displayName: "App",
+let React = require('react');
+const RaisedButton = require('../../node_modules/material-ui/lib/raised-button');
+const History = require('react-router').History;
+
+let App = React.createClass({ displayName: "App",
   mixins: [History],
   render: function () {
-    return React.createElement("div", null, React.createElement("div", null, "//Topbar (different for Mobile vs. Non Mobile)" + ' ' + "//Sidebar (only present on non-mobile)" + ' ' + "//Bottom copyright thing/contact"), React.createElement(RaisedButton, { onClick: () => this.history.pushState(null, "/order/join/blah_blah_123") }, "Join"), React.createElement(RaisedButton, { onClick: () => this.history.pushState(null, "order/new") }, "New"), this.props.children);
+    return React.createElement("div", null, React.createElement("div", null, "//Topbar (different for Mobile vs. Non Mobile)" + ' ' + "//Sidebar (only present on non-mobile)" + ' ' + "//Bottom copyright thing/contact"), React.createElement(RaisedButton, { onClick: () => this.history.pushState(null, "/order/join/blah_blah_123"), label: "Join" }), React.createElement(RaisedButton, { onClick: () => this.history.pushState(null, "order/new"), label: "New" }), this.props.children);
   }
 });
 

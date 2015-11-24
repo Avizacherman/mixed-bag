@@ -1,10 +1,11 @@
-var React = require('react')
-var RaisedButton = require('../../node_modules/material-ui/lib/raised-button')
-var Link = require('react-router').Link
-var History = require('react-router').History
+"use strict"
+
+let React = require('react')
+const RaisedButton = require('../../node_modules/material-ui/lib/raised-button')
+const History = require('react-router').History
 
 
-var App = React.createClass({
+let App = React.createClass({
   mixins: [ History ],
   render: function(){
     return(
@@ -16,8 +17,8 @@ var App = React.createClass({
 
       </div>
 
-        <RaisedButton onClick={()=>this.history.pushState(null, "/order/join/blah_blah_123")}>Join</RaisedButton>
-        <RaisedButton onClick={()=>this.history.pushState(null, "order/new")}>New</RaisedButton>
+        <RaisedButton onClick={()=>this.history.pushState(null, "/order/join/blah_blah_123")}label="Join"/>
+        <RaisedButton onClick={()=>this.history.pushState(null, "order/new")}label="New"/>
 
     {this.props.children}
 

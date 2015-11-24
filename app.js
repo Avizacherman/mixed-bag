@@ -14,9 +14,6 @@ var appRoute = require('./routes/appRoute')
 
 var app = express();
 
-// browserify.settings({
-//   transform: ['babelify', 'reactify']
-// })
 
 
 
