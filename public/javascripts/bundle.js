@@ -39339,13 +39339,13 @@ var Route = ReactRouter.Route;
 var Link = ReactRouter.Link;
 var IndexRoute = ReactRouter.IndexRoute;
 
-var App = require('./components/app.jsx');
-var User = require('./components/user.jsx');
-var Order = require('./components/order.jsx');
-var NewOrder = require('./components/newOrder.jsx');
-var JoinOrder = require('./components/joinOrder.jsx');
-var Base = require('./components/base.jsx');
+var App = require('./components/app');
+var User = require('./components/user');
+var Order = require('./components/order');
+var NewOrder = require('./components/newOrder');
+var JoinOrder = require('./components/joinOrder');
+var Base = require('./components/base');
 
 ReactDOM.render(React.createElement(Router, null, React.createElement(Route, { path: "/", component: App }, React.createElement(IndexRoute, { component: Base }), React.createElement(Route, { path: "user/:id", component: User }), React.createElement(Route, { path: "order", component: Order }, React.createElement(Route, { path: "new", component: NewOrder }), React.createElement(Route, { path: "join/:uniqueID", component: JoinOrder })))), document.getElementById('content'));
 
-},{"./components/app.jsx":257,"./components/base.jsx":258,"./components/joinOrder.jsx":259,"./components/newOrder.jsx":260,"./components/order.jsx":261,"./components/user.jsx":262,"bootstrap-sass":1,"jquery":61,"react":255,"react-dom":96,"react-router":116}]},{},[263]);
+},{"./components/app":257,"./components/base":258,"./components/joinOrder":259,"./components/newOrder":260,"./components/order":261,"./components/user":262,"bootstrap-sass":1,"jquery":61,"react":255,"react-dom":96,"react-router":116}]},{},[263]);

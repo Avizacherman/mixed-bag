@@ -10,12 +10,12 @@ var Route = ReactRouter.Route
 var Link = ReactRouter.Link
 var IndexRoute = ReactRouter.IndexRoute
 
-var App = require('./components/app.jsx')
-var User = require('./components/user.jsx')
-var Order = require('./components/order.jsx')
-var NewOrder = require('./components/newOrder.jsx')
-var JoinOrder = require('./components/joinOrder.jsx')
-var Base = require('./components/base.jsx')
+var App = require('./components/app')
+var User = require('./components/user')
+var Order = require('./components/order')
+var NewOrder = require('./components/newOrder')
+var JoinOrder = require('./components/joinOrder')
+var Base = require('./components/base')
 
 ReactDOM.render((
   <Router>

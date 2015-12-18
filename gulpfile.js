@@ -13,7 +13,7 @@ gulp.task('sass', ()=>
 )
 
 gulp.task('browserify', ()=>{
-  bundleStream = browserify('src/jsx/main.jsx')
+  bundleStream = browserify('src/jsx/main.jsx', {extensions: ['.jsx']})
     .transform(reactify)
     .transform(babelify)
     .bundle()
