@@ -3,30 +3,44 @@ var gulp = require('gulp')
 var browserify = require('browserify')
 var sass = require('gulp-sass')
 var rename = require('gulp-rename')
-var reactify = require('reactify')
 var babelify = require('babelify')
+var eslint = require('gulp-eslint')
 
-gulp.task('sass', ()=>
-  gulp.src('src/scss/*.scss')
+gulp.task('sass', () =>
+   gulp.src('src/scss/*.scss')
     .pipe(sass())
     .pipe(gulp.dest('public/stylesheets'))
 )
 
-gulp.task('browserify', ()=>{
-  bundleStream = browserify('src/jsx/main.jsx', {extensions: ['.jsx']})
-    .transform(reactify)
-    .transform(babelify)
+gulp.task('lint-jsx', () =>
+   gulp.src('src/jsx/*.jsx')
+    .pipe(eslint())
+    .pipe(eslint.format())
+)
+
+gulp.task('lint-server', () =>
+   gulp.src(['**/*.js', '!node_modules/**', '!public/javascripts/bundle.js'])
+    .pipe(eslint())
+    .pipe(eslint.format())
+)
+
+gulp.task('browserify', () => {
+  var bundleStream = browserify('src/jsx/main.jsx', {extensions: ['.jsx']})
+    .transform(babelify, {presets: ['es2015', 'react']})
     .bundle()
 
-  bundleStream
+  return bundleStream
     .pipe(source('main.jsx'))
     .pipe(rename('bundle.js'))
     .pipe(gulp.dest('public/javascripts/'))
 })
 
-gulp.task('watch', ()=>{
+gulp.task('watch', () => {
   gulp.watch('src/scss/*.scss', ['sass'])
   gulp.watch('src/jsx/*.jsx', ['browserify'])
+  gulp.watch(['**/*.js*', '!public/javascripts/bundle.js'], ['lint-jsx', 'lint-server'])
 })
 
-gulp.task('default', ['sass', 'watch', 'browserify'])
+gulp.task('lint', ['lint-jsx', 'lint-server'])
+
+gulp.task('default', ['lint', 'sass', 'watch', 'browserify'])

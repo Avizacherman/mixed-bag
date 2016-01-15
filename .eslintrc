@@ -1,0 +1,6 @@
+{
+  "extends": ["standard"],
+  "ecmaFeatures": {
+    "jsx": true
+  }
+}

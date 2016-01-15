@@ -1,21 +1,16 @@
 window.jQuery = window.$ = require('jquery')
 
-var React = require('react')
-var ReactDOM = require('react-dom')
-var bootstrap = require('bootstrap-sass')
-var ReactRouter = require('react-router')
+import React from 'react'
+import ReactDOM from 'react-dom'
+import bootstrap from 'bootstrap-sass'
+import { Router, Route, Link, IndexRoute } from 'react-router'
 
-var Router = ReactRouter.Router
-var Route = ReactRouter.Route
-var Link = ReactRouter.Link
-var IndexRoute = ReactRouter.IndexRoute
-
-var App = require('./components/app')
-var User = require('./components/user')
-var Order = require('./components/order')
-var NewOrder = require('./components/newOrder')
-var JoinOrder = require('./components/joinOrder')
-var Base = require('./components/base')
+import App from './components/app'
+import User from './components/user'
+import Order from './components/order'
+import NewOrder from './components/newOrder'
+import JoinOrder from './components/joinOrder'
+import Base from './components/base'
 
 ReactDOM.render((
   <Router>

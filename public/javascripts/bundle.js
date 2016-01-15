@@ -39262,24 +39262,47 @@ module.exports = warning;
 },{"_process":87}],257:[function(require,module,exports){
 "use strict";
 
-let React = require('react');
-const RaisedButton = require('../../../node_modules/material-ui/lib/raised-button');
-const History = require('react-router').History;
+var React = require('react');
+var RaisedButton = require('../../../node_modules/material-ui/lib/raised-button');
+var History = require('react-router').History;
 
-let App = React.createClass({ displayName: "App",
+var App = React.createClass({
+  displayName: 'App',
+
   mixins: [History],
-  render: function () {
-    return React.createElement("div", null, React.createElement("div", null, "//Topbar (different for Mobile vs. Non Mobile)" + ' ' + "//Sidebar (only present on non-mobile)" + ' ' + "//Bottom copyright thing/contact"), React.createElement(RaisedButton, { onClick: () => this.history.pushState(null, "/order/join/blah_blah_123"), label: "Join" }), React.createElement(RaisedButton, { onClick: () => this.history.pushState(null, "order/new"), label: "New" }), this.props.children);
+  render: function render() {
+    var _this = this;
+
+    return React.createElement(
+      'div',
+      null,
+      React.createElement(
+        'div',
+        null,
+        '//Topbar (different for Mobile vs. Non Mobile) //Sidebar (only present on non-mobile) //Bottom copyright thing/contact'
+      ),
+      React.createElement(RaisedButton, { onClick: function onClick() {
+          return _this.history.pushState(null, "/order/join/blah_blah_123");
+        }, label: 'Join' }),
+      React.createElement(RaisedButton, { onClick: function onClick() {
+          return _this.history.pushState(null, "order/new");
+        }, label: 'New' }),
+      this.props.children
+    );
   }
 });
 
 module.exports = App;
 
 },{"../../../node_modules/material-ui/lib/raised-button":65,"react":255,"react-router":116}],258:[function(require,module,exports){
+'use strict';
+
 var React = require('react');
 
-var Base = React.createClass({ displayName: "Base",
-  render: function () {
+var Base = React.createClass({
+  displayName: 'Base',
+
+  render: function render() {
     return null;
   }
 });
@@ -39287,21 +39310,33 @@ var Base = React.createClass({ displayName: "Base",
 module.exports = Base;
 
 },{"react":255}],259:[function(require,module,exports){
+'use strict';
+
 var React = require('react');
 
-var JoinOrder = React.createClass({ displayName: "JoinOrder",
-  render: function () {
-    return React.createElement("div", null, this.props.params.uniqueID);
+var JoinOrder = React.createClass({
+  displayName: 'JoinOrder',
+
+  render: function render() {
+    return React.createElement(
+      'div',
+      null,
+      this.props.params.uniqueID
+    );
   }
 });
 
 module.exports = JoinOrder;
 
 },{"react":255}],260:[function(require,module,exports){
+'use strict';
+
 var React = require('react');
 
-var NewOrder = React.createClass({ displayName: "NewOrder",
-  render: function () {
+var NewOrder = React.createClass({
+  displayName: 'NewOrder',
+
+  render: function render() {
     return null;
   }
 });
@@ -39309,43 +39344,99 @@ var NewOrder = React.createClass({ displayName: "NewOrder",
 module.exports = NewOrder;
 
 },{"react":255}],261:[function(require,module,exports){
+"use strict";
+
 var React = require('react');
 
-var Order = React.createClass({ displayName: "Order",
-  render: function () {
-    return React.createElement("div", null, this.props.children || "bienveniue");
+var Order = React.createClass({
+  displayName: "Order",
+
+  render: function render() {
+    return React.createElement(
+      "div",
+      null,
+      this.props.children || "bienveniue"
+    );
   }
 });
 
 module.exports = Order;
 
 },{"react":255}],262:[function(require,module,exports){
+'use strict';
+
 var React = require('react');
 
-var User = () => React.createElement("div", null, "Yo");
+var User = function User() {
+  return React.createElement(
+    'div',
+    null,
+    'Yo'
+  );
+};
 
 module.exports = User;
 
 },{"react":255}],263:[function(require,module,exports){
+'use strict';
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = require('react-dom');
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _bootstrapSass = require('bootstrap-sass');
+
+var _bootstrapSass2 = _interopRequireDefault(_bootstrapSass);
+
+var _reactRouter = require('react-router');
+
+var _app = require('./components/app');
+
+var _app2 = _interopRequireDefault(_app);
+
+var _user = require('./components/user');
+
+var _user2 = _interopRequireDefault(_user);
+
+var _order = require('./components/order');
+
+var _order2 = _interopRequireDefault(_order);
+
+var _newOrder = require('./components/newOrder');
+
+var _newOrder2 = _interopRequireDefault(_newOrder);
+
+var _joinOrder = require('./components/joinOrder');
+
+var _joinOrder2 = _interopRequireDefault(_joinOrder);
+
+var _base = require('./components/base');
+
+var _base2 = _interopRequireDefault(_base);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 window.jQuery = window.$ = require('jquery');
 
-var React = require('react');
-var ReactDOM = require('react-dom');
-var bootstrap = require('bootstrap-sass');
-var ReactRouter = require('react-router');
-
-var Router = ReactRouter.Router;
-var Route = ReactRouter.Route;
-var Link = ReactRouter.Link;
-var IndexRoute = ReactRouter.IndexRoute;
-
-var App = require('./components/app');
-var User = require('./components/user');
-var Order = require('./components/order');
-var NewOrder = require('./components/newOrder');
-var JoinOrder = require('./components/joinOrder');
-var Base = require('./components/base');
-
-ReactDOM.render(React.createElement(Router, null, React.createElement(Route, { path: "/", component: App }, React.createElement(IndexRoute, { component: Base }), React.createElement(Route, { path: "user/:id", component: User }), React.createElement(Route, { path: "order", component: Order }, React.createElement(Route, { path: "new", component: NewOrder }), React.createElement(Route, { path: "join/:uniqueID", component: JoinOrder })))), document.getElementById('content'));
+_reactDom2.default.render(_react2.default.createElement(
+  _reactRouter.Router,
+  null,
+  _react2.default.createElement(
+    _reactRouter.Route,
+    { path: '/', component: _app2.default },
+    _react2.default.createElement(_reactRouter.IndexRoute, { component: _base2.default }),
+    _react2.default.createElement(_reactRouter.Route, { path: 'user/:id', component: _user2.default }),
+    _react2.default.createElement(
+      _reactRouter.Route,
+      { path: 'order', component: _order2.default },
+      _react2.default.createElement(_reactRouter.Route, { path: 'new', component: _newOrder2.default }),
+      _react2.default.createElement(_reactRouter.Route, { path: 'join/:uniqueID', component: _joinOrder2.default })
+    )
+  )
+), document.getElementById('content'));
 
 },{"./components/app":257,"./components/base":258,"./components/joinOrder":259,"./components/newOrder":260,"./components/order":261,"./components/user":262,"bootstrap-sass":1,"jquery":61,"react":255,"react-dom":96,"react-router":116}]},{},[263]);
