@@ -26,17 +26,24 @@
 body {
   font: 1em Roboto; }
 
-.splash-box {
-  position: absolute;
+.splash-background {
+  position: fixed;
+  z-index: -1;
   height: 100%;
   width: 100%;
   background: url("http://thumbs.dreamstime.com/z/group-friends-sitting-around-table-having-dinner-party-smiling-to-camera-holding-glass-white-wine-35610523.jpg");
   background-size: cover;
   background-repeat: no-repeat; }
 
-.disclaimer p {
-  font-size: .33em;
-  text-align: center; }
-
-.disclaimer a {
-  text-decoration: none; }
+div.splash-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100vh; }
+  div.splash-box .disclaimer {
+    display: flex;
+    align-self: center;
+    font-size: .33em; }
+    div.splash-box .disclaimer a {
+      text-decoration: none; }

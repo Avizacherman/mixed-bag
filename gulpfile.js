@@ -7,13 +7,13 @@ var babelify = require('babelify')
 var eslint = require('gulp-eslint')
 
 gulp.task('sass', () =>
-   gulp.src('src/scss/*.scss')
+   gulp.src('./src/scss/*.scss')
     .pipe(sass())
     .pipe(gulp.dest('public/stylesheets'))
 )
 
 gulp.task('lint-jsx', () =>
-   gulp.src('src/jsx/*.jsx')
+   gulp.src('./src/jsx/*.jsx')
     .pipe(eslint())
     .pipe(eslint.format())
 )
@@ -25,22 +25,21 @@ gulp.task('lint-server', () =>
 )
 
 gulp.task('browserify', () => {
-  var bundleStream = browserify('src/jsx/main.jsx', {extensions: ['.jsx']})
+  var bundleStream = browserify('./src/jsx/main.jsx', {extensions: ['.jsx']})
     .transform(babelify, {presets: ['es2015', 'react']})
     .bundle()
 
-  return bundleStream
+   bundleStream
     .pipe(source('main.jsx'))
     .pipe(rename('bundle.js'))
     .pipe(gulp.dest('public/javascripts/'))
 })
 
 gulp.task('watch', () => {
-  gulp.watch('src/scss/*.scss', ['sass'])
-  gulp.watch('src/jsx/*.jsx', ['browserify'])
-  gulp.watch(['**/*.js*', '!public/javascripts/bundle.js'], ['lint-jsx', 'lint-server'])
+  gulp.watch('./src/scss/*.scss', ['sass'])
+  gulp.watch('./src/jsx/*.jsx', ['browserify'])
 })
 
 gulp.task('lint', ['lint-jsx', 'lint-server'])
 
-gulp.task('default', ['lint', 'sass', 'watch', 'browserify'])
+gulp.task('default', ['lint', 'sass', 'browserify', 'watch' ])

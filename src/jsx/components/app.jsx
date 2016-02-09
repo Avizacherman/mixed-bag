@@ -1,13 +1,12 @@
-"use strict"
 
-let React = require('react')
-const RaisedButton = require('../../../node_modules/material-ui/lib/raised-button')
-const History = require('react-router').History
+import React from 'react'
+import RaisedButton from '../../../node_modules/material-ui/lib/raised-button'
+import History from 'react-router'
 
 
 let App = React.createClass({
   mixins: [ History ],
-  render: function(){
+  render(){
     return(
     <div>
       <div>
@@ -27,4 +26,4 @@ let App = React.createClass({
     }
 })
 
-module.exports = App
+export { App }

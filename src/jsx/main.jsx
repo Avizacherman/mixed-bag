@@ -1,8 +1,7 @@
-window.jQuery = window.$ = require('jquery')
+import { jQuery, $ } from 'jquery'
 
 import React from 'react'
 import ReactDOM from 'react-dom'
-import bootstrap from 'bootstrap-sass'
 import { Router, Route, Link, IndexRoute } from 'react-router'
 
 import App from './components/app'
